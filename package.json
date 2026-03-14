@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anaCarolina2010/restaurante.git"
+    "url": "git+https://github.com/oguinunes/restaurante.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/anaCarolina2010/restaurante/issues"
+    "url": "https://github.com/oguinunes/restaurante/issues"
   },
-  "homepage": "https://github.com/anaCarolina2010/restaurante#readme",
+  "homepage": "https://github.com/oguinunes/restaurante#readme",
   "dependencies": {
     "express": "^5.2.1"
   },
