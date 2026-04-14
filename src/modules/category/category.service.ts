@@ -1,42 +1,41 @@
-/*
-    Papel do category.service.ts
-
-    Será responsável por:
-        - Criar categoria
-        - Listar categoria
-        - Buscar categoria por id
-        - Atualizar cat
-        - Excluir cat
-    Ou seja, concentra as operações e regras de negócio relacionado ao modulo categoria
-
-    ---------------------------
-    O Service:
-        - Não recebe req e res
-        - Não define rota
-        - Não sabe nada de HTTP
-        - Cuida da lógica da funcionalidade
-*/
-
 import Category from "./category.model.js";
 import type {
     ICreateCategoryDTO,
     IUpdateCategoryDTO
 } from "./category.types.js";
 
-class CategoryService{
-    public async create(data:ICreateCategoryDTO){
+class CategoryService {
+    
+    // Criar categoria
+    public async create(data: ICreateCategoryDTO) {
         const category = await Category.create({
-            name:data.name,
-            description:data.description ?? "",
-            active:data.active ?? true,
+            name: data.name,
+            description: data.description ?? "",
+            active: data.active ?? true,
         });
         return category;
     }
 
-    public async findAll(){
+    // Listar categorias
+    public async findAll() {
         return await Category.find();
+    }
+
+    // Buscar por ID
+    public async findById(id: string) {
+        return await Category.findById(id);
+    }
+
+    // Atualizar categoria
+    public async update(id: string, data: IUpdateCategoryDTO) {
+        // { new: true } retorna o objeto já atualizado
+        return await Category.findByIdAndUpdate(id, data, { new: true });
+    }
+
+    // Excluir categoria
+    public async delete(id: string) {
+        return await Category.findByIdAndDelete(id);
     }
 }
 
-
-export default new CategoryService;
+export default new CategoryService();
